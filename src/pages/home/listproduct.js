@@ -1,50 +1,37 @@
-import { getProducts } from "./components/products"
-import "../../App.css"
-function Products() {
+import { getProducts } from "./components/products";
+const Products = () => {
   return (
-    <section className="section categories">
-      <div className="title">
-        <span>CATEGORIES</span>
-        <h2>2022 Fresh Products</h2>
+    <>
+      <div className="buttons d-flex justify-content-center pb-5">
+        <button className="btn btn-outline-dark me-2">All</button>
+        <button className="btn btn-outline-dark me-2">Diet foods</button>
       </div>
       <ListProducts />
-    </section>
-  )
-}
+    </>
+  );
+};
 
 function ListProducts() {
-  let products = getProducts()
-  const productList = products.map((product, index) => 
-    <div className="product" key={index}>
-      <div className="top d-flex">
-        <a href="product-detail.html"><img src={product.url} alt="Product" /></a>
-        <div className="icon d-flex">
-          <i className="bx bxs-heart"></i>
-        </div>
-      </div>
-      <div className="bottom">
-        <div className="d-flex">
-          <h4>{product.title}</h4>
-          <a href="cart.html" className="btn cart-btn">Add to Cart</a>
-        </div>
-        <div className="d-flex">
-          <div className="price">Rp.{product.price}</div>
-          <div className="rating">
-            <i className="bx bxs-star"></i>
-            <i className="bx bxs-star"></i>
-            <i className="bx bxs-star"></i>
-            <i className="bx bxs-star"></i>
-            <i className="bx bxs-star"></i>
-          </div>
+  let products = getProducts();
+  const productList = products.map((product, index) => (
+    <div className="col-md-3 pb-2" key={index}>
+      <div className="card h-100 text-center p4">
+        <img src={product.url} className="card-img-top food-img" alt="..." />
+        <div className="card-body">
+          <h5 className="card-title">{product.title}</h5>
+          <p className="card-text">
+            {product.title} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit ut eligendi explicabo vero sint, blanditiis adipisci obcaecati vel facere natus.
+          </p>
+          <p>Rp. {product.price}</p>
+          <a href="https://google.com" className="btn btn-primary">
+            Add to cart
+          </a>
         </div>
       </div>
     </div>
-  )
-  return (
-    <div className="products container">
-      {productList}
-    </div>
-  )
+    
+  ));
+  return <div className="row justify-content-center">{productList}</div>;
 }
 
-export default Products
+export default Products;

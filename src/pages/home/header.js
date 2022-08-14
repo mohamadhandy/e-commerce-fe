@@ -1,60 +1,50 @@
-import "../../../src/App.css"
-
-function Header() {
+const Header = () => {
   return (
-    <header className="header">
-      <nav className="navbar">
-        <div className="row container d-flex">
-          <div className="logo">
-            <img src="./images/logo.png" alt="" />
-          </div>
-
-          <div className="nav-list d-flex">
-            <p>Home</p>
-            <div className="close">
-              <i className="bx bx-x"></i>
-            </div>
-            <p>Login</p>
-          </div>
-
-          <div className="icons d-flex">
-            <div className="icon d-flex"><i className="bx bx-search"></i></div>
-            
-            <div className="icon user-icon d-flex">
-              <a href="login.html">
-                <i className="bx bx-user"></i>
+    <nav className="navbar navbar-expand-lg bg-light py-4">
+      <div className="container">
+      <img src="./images/logo.png" alt="" />
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarTogglerDemo02"
+          aria-controls="navbarTogglerDemo02"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="https://google.com">
+                Home
               </a>
-            </div>
-            <div className="icon d-flex">
-              <i className="bx bx-bell"></i>
-              <span></span>
-            </div>
-          </div>
-
-          <div className="hamburger">
-            <i className="bx bx-menu-alt-right"></i>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="https://google.com">
+                Products
+              </a>
+            </li>
+          </ul>
+          <div className="buttons">
+            <button className="btn btn-outline-dark me-1">
+              <i className="bx bx-user"></i>
+              Login
+            </button>
+            <button className="btn btn-outline-dark ms-2">
+              <i className="bx bx-registered"></i>
+              Register
+            </button>
+            <button className="btn btn-outline-dark ms-2">
+              <i className="bx bx-cart"></i>
+              Cart
+            </button>
           </div>
         </div>
-      </nav>
-      <Hero />
-    </header>
-  )
-}
-
-function Hero(){
-  return (
-    <div className="hero">
-      <div className="row container d-flex">
-        <div className="col">
-          <span className="subtitle">Limited Time Only For Summer</span>
-          <h1>Tutti<br />Fruittie</h1>
-          <p>YOUR BEST FRUIT ON YOUR BEST DAY</p>
-          <button className="btn">Explore Now!</button>
-        </div>
-        <img src="./images/fruits-no-bg.png" loading="lazy" alt="" />
       </div>
-    </div>
-  )
-}
+    </nav>
+  );
+};
 
 export default Header;
