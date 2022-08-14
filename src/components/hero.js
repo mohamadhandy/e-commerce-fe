@@ -1,4 +1,8 @@
 import Products from "./products";
+import Product from "./product"
+import Cart from "./cart";
+import Login from "./login";
+import Register from "./register";
 const Hero = () => {
   return (
     <div className="hero pt-4">
@@ -10,6 +14,10 @@ const Hero = () => {
             <button type="button" className="btn btn-warning btn-lg px-4 me-md-2">Explore Now</button>
           </div>
           <Products />
+          <Product />
+          <Cart />
+          <Login />
+          <Register />
         </div>
       </div>
     </div>
