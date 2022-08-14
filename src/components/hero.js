@@ -1,4 +1,4 @@
-import ListProducts from "./listproduct";
+import Products from "./products";
 const Hero = () => {
   return (
     <div className="hero pt-4">
@@ -9,7 +9,7 @@ const Hero = () => {
             <p className="card-text display-5">YOUR BEST FRUIT ON YOUR BEST DAY</p>
             <button type="button" className="btn btn-warning btn-lg px-4 me-md-2">Explore Now</button>
           </div>
-          <ListProducts />
+          <Products />
         </div>
       </div>
     </div>

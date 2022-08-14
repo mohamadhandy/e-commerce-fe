@@ -1,4 +1,4 @@
-import { getProducts } from "./components/products";
+import { getProducts } from "../helper/products";
 const Products = () => {
   return (
     <>
