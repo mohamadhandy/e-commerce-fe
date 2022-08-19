@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth, registerWithEmailAndPassword } from "../../config/firebase/index";
-import { useNavigate } from 'react-router-dom';
+import { useAuthState } from "react-firebase-hooks/auth";
+import {
+  auth,
+  registerWithEmailAndPassword,
+} from "../../config/firebase/index";
+import { useNavigate } from "react-router-dom";
 import Header from "../../components/header";
+import { Form } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import Image from "react-bootstrap/Image";
 
 const Index = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -20,10 +26,10 @@ const Index = () => {
         dataRegister.name,
         dataRegister.email,
         dataRegister.password
-      )
+      );
       alert("User created successfully");
     } catch (e) {
-      console.log(e)
+      console.log(e);
     }
   };
 
@@ -48,121 +54,95 @@ const Index = () => {
                       <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
                         Sign up
                       </p>
-
-                      <form className="mx-1 mx-md-4">
+                      <Form className="mx-1 mx-md-4">
                         <div className="d-flex flex-row align-items-center mb-4">
-                          <i className="fas fa-user fa-lg me-3 fa-fw"></i>
+                          <i className="bx bx-user me-3"></i>
                           <div className="form-outline flex-fill mb-0">
-                            <input
-                              type="text"
-                              id="form3Example1c"
-                              className="form-control"
-                              value={dataRegister.name}
-                              onChange={e =>
-                                setDataRegister({ ...dataRegister, name: e.target.value })
-                              }
-                            />
-                            <label
-                              className="form-label"
-                              htmlFor="form3Example1c"
+                            <Form.Group
+                              className="mb-3"
+                              controlid="formBasicUsername"
                             >
-                              Your Name
-                            </label>
+                              <Form.Label>Username</Form.Label>
+                              <Form.Control
+                                type="text"
+                                placeholder="Username"
+                                aria-label="Username"
+                                aria-describedby="basic-addon1"
+                                className="form-control"
+                                value={dataRegister.name}
+                                onChange={(e) =>
+                                  setDataRegister({
+                                    ...dataRegister,
+                                    name: e.target.value,
+                                  })
+                                }
+                              />
+                            </Form.Group>
+                          </div>
+                        </div>
+                        <div className="d-flex flex-row align-items-center mb-4">
+                          <i className="bx bx-envelope fa-lg me-3 fa-fw"></i>
+                          <div className="form-outline flex-fill mb-0">
+                            <Form.Group
+                              className="mb-3"
+                              controlId="formBasicEmail"
+                            >
+                              <Form.Label>Email address</Form.Label>
+                              <Form.Control
+                                type="email"
+                                placeholder="Enter email"
+                                className="form-control"
+                                value={dataRegister.email}
+                                onChange={(e) =>
+                                  setDataRegister({
+                                    ...dataRegister,
+                                    email: e.target.value,
+                                  })
+                                }
+                              />
+                            </Form.Group>
                           </div>
                         </div>
 
                         <div className="d-flex flex-row align-items-center mb-4">
-                          <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                          <i className="bx bx-log-in-circle fa-lg me-3 fa-fw"></i>
                           <div className="form-outline flex-fill mb-0">
-                            <input
-                              type="email"
-                              id="form3Example3c"
-                              className="form-control"
-                              value={dataRegister.email}
-                              onChange={e =>
-                                setDataRegister({ ...dataRegister, email: e.target.value })
-                              }
-                            />
-                            <label
-                              className="form-label"
-                              htmlFor="form3Example3c"
+                            <Form.Group
+                              className="mb-3"
+                              controlId="formBasicPassword"
                             >
-                              Your Email
-                            </label>
+                              <Form.Label>Password</Form.Label>
+                              <Form.Control
+                                type="password"
+                                placeholder="Password"
+                                className="form-control"
+                                value={dataRegister.password}
+                                onChange={(e) =>
+                                  setDataRegister({
+                                    ...dataRegister,
+                                    password: e.target.value,
+                                  })
+                                }
+                              />
+                            </Form.Group>
                           </div>
                         </div>
 
-                        <div className="d-flex flex-row align-items-center mb-4">
-                          <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
-                          <div className="form-outline flex-fill mb-0">
-                            <input
-                              type="password"
-                              id="form3Example4c"
-                              className="form-control"
-                              value={dataRegister.password}
-                              onChange={e =>
-                                setDataRegister({ ...dataRegister, password: e.target.value })
-                              }
-                            />
-                            <label
-                              className="form-label"
-                              htmlFor="form3Example4c"
-                            >
-                              Password
-                            </label>
-                          </div>
-                        </div>
-
-                        <div className="d-flex flex-row align-items-center mb-4">
-                          <i className="fas fa-key fa-lg me-3 fa-fw"></i>
-                          <div className="form-outline flex-fill mb-0">
-                            <input
-                              type="password"
-                              id="form3Example4cd"
-                              className="form-control"
-                              value={dataRegister.password}
-                              onChange={e =>
-                                setDataRegister({ ...dataRegister, password: e.target.value })
-                              }
-                            />
-                            <label
-                              className="form-label"
-                              htmlFor="form3Example4cd"
-                            >
-                              Repeat your password
-                            </label>
-                          </div>
-                        </div>
-
-                        <div className="form-check d-flex justify-content-center mb-5">
-                          <input
-                            className="form-check-input me-2"
-                            type="checkbox"
-                            value=""
-                            id="form2Example3c"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="form2Example3"
-                          >
-                            I agree all statements in{" "}
-                            <span>Terms of service</span>
-                          </label>
-                        </div>
-
-                        <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                          <button
-                            className="btn btn-primary btn-lg"
+                        <div className="d-grid gap-2">
+                          <Button
+                            variant="primary"
+                            className="btn btn-primary"
                             type="submit"
                             onClick={(e) => handleSubmit(e)}
+                            size="lg"
                           >
                             Register
-                          </button>
+                          </Button>
                         </div>
-                      </form>
+                      </Form>
                     </div>
                     <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-                      <img
+                      <Image
                         src="./images/5334958.jpg"
                         className="img-fluid"
                         alt="Sample"
