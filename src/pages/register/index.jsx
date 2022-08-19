@@ -22,7 +22,7 @@ const Index = () => {
     e.preventDefault();
 
     try {
-      const res = await registerWithEmailAndPassword(
+      await registerWithEmailAndPassword(
         dataRegister.name,
         dataRegister.email,
         dataRegister.password
