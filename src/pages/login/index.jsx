@@ -5,6 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 const Index = () => {
   const [dataLogin, setDataLogin] = useState({ email: "", password: "" });
@@ -27,9 +30,9 @@ const Index = () => {
     <>
       <Header />
       <section className="vh-100">
-        <div className="container py-5 h-100">
-          <div className="row d-flex justify-content-center align-items-center h-100">
-            <div className="col-12 col-md-8 col-lg-6 col-xl-5">
+        <Container className="container py-5 h-100">
+          <Row className="row d-flex justify-content-center align-items-center h-100">
+            <Col className="col-12 col-md-8 col-lg-6 col-xl-5">
               <div className="card shadow-2-strong section-card-login">
                 <div className="card-body p-5 text-center">
                   <h3 className="mb-5">Sign in</h3>
@@ -82,9 +85,9 @@ const Index = () => {
                   </Button>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
+            </Col>
+          </Row>
+        </Container>
       </section>
     </>
   );
