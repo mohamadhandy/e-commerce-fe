@@ -1,6 +1,6 @@
-import Header from "components/header";
-import Hero from "components/hero";
-import ListProducts from "components/products";
+import Header from "../../components/header";
+import Hero from "../../components/hero";
+import ListProducts from "../../components/products";
 
 const Index = () => {
   return (

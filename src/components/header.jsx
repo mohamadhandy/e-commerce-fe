@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { auth, logout } from "config/firebase";
+import { auth, logout } from "../config/firebase/index";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link as Scroll } from "react-scroll";
 import { useLocation } from "react-router-dom";

@@ -1,5 +1,5 @@
-import Header from "components/header";
-import { auth, logInWithEmailAndPassword } from "config/firebase";
+import Header from "../../components/header";
+import { auth, logInWithEmailAndPassword } from "../../config/firebase/index";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";

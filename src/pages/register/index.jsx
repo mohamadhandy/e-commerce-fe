@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth, registerWithEmailAndPassword } from "config/firebase";
+import { auth, registerWithEmailAndPassword } from "../../config/firebase/index";
 import { useNavigate } from 'react-router-dom';
-import Header from "components/header";
+import Header from "../../components/header";
 
 const Index = () => {
   const [user, loading, error] = useAuthState(auth);
