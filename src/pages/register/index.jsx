@@ -9,6 +9,9 @@ import Header from "../../components/header";
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 const Index = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -44,12 +47,12 @@ const Index = () => {
     <>
       <Header />
       <section className="vh-100 pt-4">
-        <div className="container h-100">
-          <div className="row d-flex justify-content-center align-items-center h-100">
-            <div className="col-lg-12 col-xl-11">
+        <Container className="container h-100">
+          <Row className="row d-flex justify-content-center align-items-center h-100">
+            <Col className="col-lg-12 col-xl-11">
               <div className="card text-black">
                 <div className="card-body p-md-5">
-                  <div className="row justify-content-center">
+                  <Row className="row justify-content-center">
                     <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                       <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
                         Sign up
@@ -148,12 +151,12 @@ const Index = () => {
                         alt="Sample"
                       />
                     </div>
-                  </div>
+                  </Row>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
+            </Col>
+          </Row>
+        </Container>
       </section>
     </>
   );
