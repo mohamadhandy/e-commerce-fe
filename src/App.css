@@ -1,41 +1,27 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Aclonica&display=swap");
+.tuttie-fruittie-h1 {
+  font-family: "Aclonica", sans-serif;
+  font-size: 10rem;
+  line-height: 1;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.food-img {
+  height: 18rem;
+  width: 10rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.section-card-login {
+  border-radius: 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.login-button {
+  background-color: #dd4b39;
 }
 
-.card {
-  padding: 2em;
+.signup-button {
+  background-color: #3b5998;
 }
 
-.read-the-docs {
-  color: #888;
+.max-width-cart {
+  max-width: 300px;
 }
