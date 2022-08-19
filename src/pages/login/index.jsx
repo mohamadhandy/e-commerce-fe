@@ -3,6 +3,8 @@ import { auth, logInWithEmailAndPassword } from "../../config/firebase/index";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 const Index = () => {
   const [dataLogin, setDataLogin] = useState({ email: "", password: "" });
@@ -33,49 +35,51 @@ const Index = () => {
                   <h3 className="mb-5">Sign in</h3>
 
                   <div className="form-outline mb-4">
-                    <input
-                      type="email"
-                      id="typeEmailX-2"
-                      className="form-control form-control-lg"
-                      onChange={e =>
-                        setDataLogin({ ...dataLogin, email: e.target.value })
-                      }
-                    />
-                    <label className="form-label" htmlFor="typeEmailX-2">
-                      Email
-                    </label>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label>Email address</Form.Label>
+                      <Form.Control
+                        type="email"
+                        placeholder="Enter email"
+                        className="form-control form-control-lg"
+                        onChange={(e) =>
+                          setDataLogin({ ...dataLogin, email: e.target.value })
+                        }
+                      />
+                    </Form.Group>
                   </div>
 
                   <div className="form-outline mb-4">
-                    <input
-                      type="password"
-                      id="typePasswordX-2"
-                      className="form-control form-control-lg"
-                      onChange={e =>
-                        setDataLogin({ ...dataLogin, password: e.target.value })
-                      }
-                    />
-                    <label className="form-label" htmlFor="typePasswordX-2">
-                      Password
-                    </label>
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                      <Form.Label>Password</Form.Label>
+                      <Form.Control
+                        type="password"
+                        placeholder="Password"
+                        className="form-control form-control-lg"
+                        onChange={(e) =>
+                          setDataLogin({
+                            ...dataLogin,
+                            password: e.target.value,
+                          })
+                        }
+                      />
+                    </Form.Group>
                   </div>
-
-                  <button
-                    className="btn btn-primary btn-lg btn-block"
+                  <Button
+                    variant="primary"
                     type="submit"
-                    onClick={(e) => handleSubmit(e, 'login')}
+                    onClick={(e) => handleSubmit(e, "login")}
                   >
-                    Login
-                  </button>
-
+                    Submit
+                  </Button>
                   <hr className="my-4" />
-
-                  <button
-                    className="btn btn-lg btn-block btn-primary login-button"
+                  <Button
+                    variant="primary"
                     type="submit"
+                    size="lg"
+                    onClick={(e) => handleSubmit(e, "login")}
                   >
-                    <i className='bx bxl-google'></i> Sign in with google
-                  </button>
+                    <i className="bx bxl-google"></i> Sign in with google
+                  </Button>
                 </div>
               </div>
             </div>
