@@ -1,10 +1,6 @@
 import Header from "../../components/header";
 import Cart from "../../components/cart";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
-import Image from "react-bootstrap/Image";
+import { Container, Row, Col, Button } from 'reactstrap'
 
 const Index = () => {
   return (
@@ -12,8 +8,8 @@ const Index = () => {
       <Header />
       <section className="h-100 gradient-custom">
         <Container className="container py-5">
-          <Row className="row d-flex justify-content-center my-4">
-            <Col className="col-md-8">
+          <Row lg={12} className="justify-content-center">
+            <Col md={8} xs={12}>
               <div className="card mb-4">
                 <div className="card-header py-3">
                   <h5 className="mb-0">Cart - 2 items</h5>
@@ -28,33 +24,8 @@ const Index = () => {
                   <p className="mb-0">12.10.2020 - 14.10.2020</p>
                 </div>
               </div>
-              <div className="card mb-4 mb-lg-0">
-                <div className="card-body">
-                  <p>
-                    <strong>We accept</strong>
-                  </p>
-                  <Image
-                    className="me-2"
-                    width="45px"
-                    src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
-                    alt="Visa"
-                  />
-                  <Image
-                    className="me-2"
-                    width="45px"
-                    src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
-                    alt="American Express"
-                  />
-                  <Image
-                    className="me-2"
-                    width="45px"
-                    src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
-                    alt="Mastercard"
-                  />
-                </div>
-              </div>
             </Col>
-            <Col className="col-md-4">
+            <Col md={4} xs={12}>
               <div className="card mb-4">
                 <div className="card-header py-3">
                   <h5 className="mb-0">Summary</h5>
@@ -84,7 +55,8 @@ const Index = () => {
 
                   <Button
                     type="button"
-                    className="btn btn-primary btn-lg btn-block"
+                    block
+                    color="primary"
                   >
                     Go to checkout
                   </Button>

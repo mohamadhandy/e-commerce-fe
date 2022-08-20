@@ -1,12 +1,9 @@
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+import { Row, Col, Input } from "reactstrap";
 const Cart = () => {
   return (
     <div className="card-body">
-      <Row className="row">
-        <Col className="col-lg-3 col-md-12 mb-4 mb-lg-0">
+      <Row lg={12}>
+        <Col md={3} xs={12}>
           <div
             className="bg-image hover-overlay hover-zoom ripple rounded"
             data-mdb-ripple-color="light"
@@ -22,7 +19,7 @@ const Cart = () => {
             </a>
           </div>
         </Col>
-        <Col className="col-lg-5 col-md-6 mb-4 mb-lg-0">
+        <Col md={5} xs={12}>
           <p>
             <strong>Apple product</strong>
           </p>
@@ -32,30 +29,12 @@ const Cart = () => {
             cumque dolorem temporibus culpa? Nulla dolorum repellat voluptas id
             quaerat?
           </p>
-          <Button
-            type="button"
-            className="btn btn-primary btn-sm me-1 mb-2"
-            data-mdb-toggle="tooltip"
-            title="Remove item"
-          >
-            <i className="bx bx-trash"></i>
-          </Button>
-          <Button
-            type="button"
-            className="btn btn-danger btn-sm mb-2"
-            data-mdb-toggle="tooltip"
-            title="Move to the wish list"
-          >
-            <i className="bx bx-heart"></i>
-          </Button>
         </Col>
-        <Col className="col-lg-4 col-md-6 mb-4 mb-lg-0">
+        <Col md={3} xs={12}>
           <div className="d-flex mb-4">
-            <Button className="btn btn-primary">
-              <i className="bx bx-minus"></i>
-            </Button>
+            <i className="bx bx-trash pt-2 px-4"></i>
             <div className="form-outline">
-              <Form.Control
+              <Input
                 id="form1"
                 min="0"
                 name="quantity"
@@ -67,9 +46,6 @@ const Cart = () => {
                 Quantity
               </label>
             </div>
-            <Button className="btn btn-primary px-3 ms-2">
-              <i className="bx bx-plus"></i>
-            </Button>
           </div>
         </Col>
       </Row>
