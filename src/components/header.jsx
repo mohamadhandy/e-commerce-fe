@@ -12,6 +12,7 @@ import {
 import ButtonHeader from "./buttonHeader";
 const Header = () => {
   const [collapsed, setCollapsed] = useState(true);
+  console.log("collapsed", collapsed);
 
   function getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window;
@@ -52,13 +53,17 @@ const Header = () => {
             <ButtonHeader />
           </NavbarText>
         )}
-        <Collapse onClick={toggleNavbar} isOpen={!collapsed} navbar>
-          <Nav navbar>
-            <NavItem>
-              <ButtonHeader />
-            </NavItem>
-          </Nav>
-        </Collapse>
+        {!collapsed ? (
+          ""
+        ) : (
+          <Collapse onClick={toggleNavbar} isOpen={!collapsed} navbar>
+            <Nav navbar>
+              <NavItem>
+                <ButtonHeader />
+              </NavItem>
+            </Nav>
+          </Collapse>
+        )}
       </Navbar>
     </>
   );

@@ -1,4 +1,5 @@
 import Header from "../../components/header";
+import { Link } from "react-router-dom";
 import { Row, Col, Button } from "reactstrap";
 const Index = () => {
   return (
@@ -24,7 +25,11 @@ const Index = () => {
             Reprehenderit ut eligendi explicabo vero sint, blanditiis adipisci
             obcaecati vel facere natus.
           </p>
-          <Button color="warning">Go to cart</Button>
+          <Link to="/cart">
+            <span className="btn btn-warning me-1">
+              Add to Cart
+            </span>
+          </Link>
         </Col>
       </Row>
     </>
