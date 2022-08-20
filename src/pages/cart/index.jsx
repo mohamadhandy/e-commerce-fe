@@ -18,7 +18,7 @@ const Index = () => {
               <Col md={8} xs={12}>
                 <div className="card mb-4">
                   <div className="card-header py-3">
-                    <h5 className="mb-0">Cart - 2 items</h5>
+                    <h5 className="mb-0">Cart -  items</h5>
                   </div>
                   <Cart />
                 </div>
