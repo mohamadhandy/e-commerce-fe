@@ -2,22 +2,33 @@ import { Link } from "react-router-dom";
 import { auth, logout } from "../config/firebase/index";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link as Scroll } from "react-scroll";
+import { useLocation } from "react-router-dom";
 const ButtonHeader = () => {
   const [user] = useAuthState(auth);
+  const location = useLocation();
   return (
     <div className="buttons">
-      <Scroll
-        to="products"
-        spy={true}
-        smooth={true}
-        offset={150}
-        duration={100}
-      >
-        <span className="btn btn-outline-dark me-1">
-          <i className="bx bxl-product-hunt"></i>
-          Products
-        </span>
-      </Scroll>
+      {location.pathname === "/" ? (
+        <Scroll
+          to="products"
+          spy={true}
+          smooth={true}
+          offset={150}
+          duration={100}
+        >
+          <span className="btn btn-outline-dark me-1">
+            <i className="bx bxl-product-hunt"></i>
+            Products
+          </span>
+        </Scroll>
+      ) : (
+        <Link to="/">
+          <span className="btn btn-outline-dark me-1">
+            <i className="bx bxl-product-hunt"></i>
+            Home
+          </span>
+        </Link>
+      )}
       {user ? (
         <span className="btn btn-outline-dark me-1" onClick={logout}>
           <i className="bx bx-user"></i>
