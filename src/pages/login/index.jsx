@@ -31,7 +31,7 @@ const Index = () => {
             lg={12}
             className="justify-content-center align-items-center h-100"
           >
-            <Col xs={12}>
+            <Col xs={12} md={5}>
               <div className="card shadow-2-strong section-card-login">
                 <div className="card-body p-5 text-center">
                   <h3 className="mb-5">Sign in</h3>
