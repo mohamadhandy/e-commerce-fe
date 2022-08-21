@@ -1,70 +1,33 @@
-import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavbarText,
-} from "reactstrap";
 import ButtonHeader from "./buttonHeader";
 const Header = () => {
-  const [collapsed, setCollapsed] = useState(true);
-  console.log("collapsed", collapsed);
-
-  function getWindowDimensions() {
-    const { innerWidth: width, innerHeight: height } = window;
-    return {
-      width,
-      height,
-    };
-  }
-
-  function useWindowDimensions() {
-    const [windowDimensions, setWindowDimensions] = useState(
-      getWindowDimensions()
-    );
-    useEffect(() => {
-      function handleResize() {
-        setWindowDimensions(getWindowDimensions());
-      }
-
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }, []);
-
-    return windowDimensions;
-  }
-  const toggleNavbar = () => setCollapsed(!collapsed);
   return (
     <>
-      <Navbar color="faded" light>
-        <Link to="/">
-          <NavbarBrand className="me-auto">
-            <img src="/images/logo.png" alt="logo" />
-          </NavbarBrand>
-        </Link>
-        {useWindowDimensions().width <= 862 ? (
-          <NavbarToggler onClick={toggleNavbar} className="me-2" />
-        ) : (
-          <NavbarText>
-            <ButtonHeader />
-          </NavbarText>
-        )}
-        {!collapsed ? (
-          ""
-        ) : (
-          <Collapse onClick={toggleNavbar} isOpen={!collapsed} navbar>
-            <Nav navbar>
-              <NavItem>
-                <ButtonHeader />
-              </NavItem>
-            </Nav>
-          </Collapse>
-        )}
-      </Navbar>
+      <nav className="navbar navbar-expand-lg bg-light">
+        <div className="container-fluid">
+          <img src="/images/logo.png" alt="logo" />
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item"></li>
+              <li class="nav-item"></li>
+              <li class="nav-item"></li>
+            </ul>
+            <form class="d-flex" role="search">
+              <ButtonHeader />
+            </form>
+          </div>
+        </div>
+      </nav>
     </>
   );
 };

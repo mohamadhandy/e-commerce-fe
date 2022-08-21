@@ -1,6 +1,6 @@
 import Header from "../../components/header";
 import { Link } from "react-router-dom";
-import { Row, Col, Button } from "reactstrap";
+import { Row, Col } from "reactstrap";
 const Index = () => {
   return (
     <>
