@@ -7,7 +7,7 @@ const ListProducts = () => {
   if (foods.APIData.length > 0) {
     productList = foods.APIData.map((product, index) => (
       <div className="col-md-3 pb-2" id="products" key={index}>
-        <Link to="/products/1">
+        <Link to={`/products/${product.id}`}>
           <div className="card h-100 text-center p4">
             <img src={product.url} className="card-img-top food-img" alt="..." />
             <div className="card-body">
