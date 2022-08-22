@@ -25,7 +25,6 @@ const Index = () => {
         dataRegister.email,
         dataRegister.password
       );
-      alert("User created successfully");
     } catch (e) {
       console.log(e);
     }
@@ -35,8 +34,11 @@ const Index = () => {
     if (loading) {
       return;
     }
-    if (user) navigate("/");
-    if (error) alert(error);
+    if (user) {
+      swal("Success", "User created successfully", "success");
+      navigate("/");
+    }
+    if (error) swal("error", error, "error");
   }, [loading, user, error, navigate]);
   return (
     <>

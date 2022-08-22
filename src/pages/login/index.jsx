@@ -12,15 +12,19 @@ const Index = () => {
   const handleSubmit = async (e, params) => {
     e.preventDefault();
     if (params === "login") {
-      await logInWithEmailAndPassword(dataLogin.email, dataLogin.password);
+      const response = await logInWithEmailAndPassword(dataLogin.email, dataLogin.password);
+      console.log("response!!!!", response);
     }
   };
   useEffect(() => {
     if (loading) {
       return;
     }
-    if (user) navigate("/");
-    if (error) alert(error);
+    if (user) {
+      swal("success", "Success login", "success")
+      navigate("/")
+    }
+    if (error) swal("error", error, "error");
   }, [loading, user, error, navigate]);
   return (
     <>

@@ -7,6 +7,8 @@ import {
 } from 'firebase/auth';
 
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import swal from 'sweetalert';
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyAMXxB4lh4hugVLYs4ljwzcXES61flX3nw",
@@ -27,7 +29,7 @@ const logInWithEmailAndPassword = async (email, password) => {
     await signInWithEmailAndPassword(auth, email, password);
   } catch (err) {
     console.error(err);
-    alert(err.message);
+    swal("Error", err.message, "error");
   }
 };
 
@@ -43,7 +45,7 @@ const registerWithEmailAndPassword = async (name, email, password) => {
     });
   } catch (err) {
     console.error(err);
-    alert(err.message);
+    swal("Error", err.message, "error");
   }
 };
 
