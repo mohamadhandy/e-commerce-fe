@@ -17,12 +17,12 @@ const Header = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item"></li>
-              <li class="nav-item"></li>
-              <li class="nav-item"></li>
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item"></li>
+              <li className="nav-item"></li>
+              <li className="nav-item"></li>
             </ul>
-            <form class="d-flex" role="search">
+            <form className="d-flex" role="search">
               <ButtonHeader />
             </form>
           </div>
