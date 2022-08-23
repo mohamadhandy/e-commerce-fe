@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useFetchFoods } from "../hooks/useFetchFoods";
 
 const ListProducts = () => {
-  let foods = useFetchFoods();
+  let foods = useFetchFoods('');
   let productList
   if (foods.APIData.length > 0) {
     productList = foods.APIData.map((product, index) => (

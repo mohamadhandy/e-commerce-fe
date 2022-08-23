@@ -2,14 +2,15 @@ import Header from "../../components/header";
 import { Link } from "react-router-dom";
 import { Row, Col } from "reactstrap";
 import { useLocation } from "react-router";
-import { useFetchFood } from "../../hooks/useFetchFood";
+import { useFetchFoods } from "../../hooks/useFetchFoods";
+
 
 const Index = () => {
   const location = useLocation();
   const idLocation = location.pathname.split("/products/")[1];
   // console.log("idlocation", idLocation);
-  const data = useFetchFood(idLocation);
-  // console.log("data", data)
+  const data = useFetchFoods(idLocation);
+  console.log("data", data)
   const food = data.APIData
   // if (data) {
   //   const food = JSON.parse(JSON.stringify(data.APIData));
