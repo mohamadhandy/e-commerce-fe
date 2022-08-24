@@ -1,87 +1,100 @@
-import { Container, Row, Col, Button } from "reactstrap";
+import { Link as Scroll } from "react-scroll";
 const Hero = () => {
   return (
     <>
-      <Container>
-        <Row xs={12}>
-          <Col xs={12}>
-            <div
-              id="carouselExampleDark"
-              className="carousel carousel-dark slide"
-              data-bs-ride="carousel"
-            >
-              <div className="carousel-indicators">
-                <button
-                  type="button"
-                  data-bs-target="#carouselExampleDark"
-                  data-bs-slide-to="0"
-                  className="active"
-                  aria-current="true"
-                  aria-label="Slide 1"
-                ></button>
-                <button
-                  type="button"
-                  data-bs-target="#carouselExampleDark"
-                  data-bs-slide-to="1"
-                  aria-label="Slide 2"
-                ></button>
-              </div>
-              <div className="carousel-inner">
-                <div className="carousel-item active" data-bs-interval="10000">
-                  <img
-                    src="/images/5334958.jpg"
-                    className="d-block w-100"
-                    alt="..."
-                  />
-                  <div className="carousel-caption d-none d-md-block">
-                    <h5>We Sell Premium Fruits</h5>
-                    <p>
-                      Hygiene Vegetables from Our Farm, Really Healthy!
-                    </p>
-                  </div>
-                </div>
-                <div className="carousel-item" data-bs-interval="2000">
-                  <img
-                    src="/images/vege.png"
-                    className="d-block w-100"
-                    alt="..."
-                  />
-                  <div className="carousel-caption d-none d-md-block">
-                    <h5>We Sell Premium Vegetables</h5>
-                    <p>
-                      Fruits from our farm are the best according to environment ministry!
-                    </p>
+      <div
+        className="container-fluid p-0 mb-5 wow fadeIn"
+        data-wow-delay="0.1s"
+      >
+        <div
+          id="header-carousel"
+          className="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div className="carousel-inner">
+            <div className="carousel-item active">
+              <img className="w-100" src="/images/carousel-1.jpg" alt="Image" />
+              <div className="carousel-caption">
+                <div className="container">
+                  <div className="row justify-content-start">
+                    <div className="col-lg-7">
+                      <h1 className="display-2 mb-5 text-success animated slideInDown">
+                        Organic Food Is Good For Health
+                      </h1>
+                      <Scroll
+                        to="products"
+                        spy={true}
+                        smooth={true}
+                        offset={150}
+                        duration={100}
+                      >
+                        <span
+                          className="btn btn-success rounded-pill py-sm-3 px-sm-5"
+                          style={{ cursor: "pointer" }}
+                        >
+                          Products
+                        </span>
+                      </Scroll>
+                    </div>
                   </div>
                 </div>
               </div>
-              <button
-                className="carousel-control-prev"
-                type="button"
-                data-bs-target="#carouselExampleDark"
-                data-bs-slide="prev"
-              >
-                <span
-                  className="carousel-control-prev-icon"
-                  aria-hidden="true"
-                ></span>
-                <span className="visually-hidden">Previous</span>
-              </button>
-              <button
-                className="carousel-control-next"
-                type="button"
-                data-bs-target="#carouselExampleDark"
-                data-bs-slide="next"
-              >
-                <span
-                  className="carousel-control-next-icon"
-                  aria-hidden="true"
-                ></span>
-                <span className="visually-hidden">Next</span>
-              </button>
             </div>
-          </Col>
-        </Row>
-      </Container>
+            <div className="carousel-item">
+              <img className="w-100" src="/images/carousel-2.jpg" alt="Image" />
+              <div className="carousel-caption">
+                <div className="container">
+                  <div className="row justify-content-start">
+                    <div className="col-lg-7">
+                      <h1 className="display-2 mb-5 text-success animated slideInDown">
+                        Natural Food Is Always Healthy
+                      </h1>
+                      <Scroll
+                        to="products"
+                        spy={true}
+                        smooth={true}
+                        offset={150}
+                        duration={100}
+                      >
+                        <span
+                          className="btn btn-success rounded-pill py-sm-3 px-sm-5"
+                          style={{ cursor: "pointer" }}
+                        >
+                          Products
+                        </span>
+                      </Scroll>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            className="carousel-control-prev"
+            type="button"
+            data-bs-target="#header-carousel"
+            data-bs-slide="prev"
+          >
+            <span
+              className="carousel-control-prev-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button
+            className="carousel-control-next"
+            type="button"
+            data-bs-target="#header-carousel"
+            data-bs-slide="next"
+          >
+            <span
+              className="carousel-control-next-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
     </>
   );
 };

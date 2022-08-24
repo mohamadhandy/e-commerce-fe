@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const ListProducts = ({ foods, loading }) => {
   return !loading ? (
-    <div className="row justify-content-center">
+    <div className="row justify-content-center" id="products">
       {foods.map((product, index) => (
         <div className="col-lg-4 col-md-12 mb-4" key={index}>
           <Link

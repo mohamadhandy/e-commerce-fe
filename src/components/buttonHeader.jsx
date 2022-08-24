@@ -6,7 +6,7 @@ const ButtonHeader = () => {
   const [user] = useAuthState(auth);
   const location = useLocation();
   return (
-    <div className="buttons">
+    <>
       {location.pathname === "/" ? (
         <Scroll
           to="products"
@@ -15,28 +15,24 @@ const ButtonHeader = () => {
           offset={150}
           duration={100}
         >
-          <span className="btn btn-outline-dark me-1">
-            <i className="bx bxl-product-hunt"></i>
+          <span className="nav-item nav-link" style={{ cursor: "pointer" }}>
             Products
           </span>
         </Scroll>
       ) : (
-        <Link to="/">
-          <span className="btn btn-outline-dark me-1">
-            <i className="bx bxl-product-hunt"></i>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <span className="nav-item nav-link" style={{ cursor: "pointer" }}>
             Home
           </span>
         </Link>
       )}
       {user ? (
-        <span className="btn btn-outline-dark me-1" onClick={logout}>
-          <i className="bx bx-user"></i>
+        <span className="nav-item nav-link" style={{ cursor: "pointer" }} onClick={logout}>
           Logout
         </span>
       ) : (
-        <Link to="/login">
-          <span className="btn btn-outline-dark me-1">
-            <i className="bx bx-user"></i>
+        <Link to="/login" style={{ textDecoration: "none" }}>
+          <span className="nav-item nav-link" style={{ cursor: "pointer" }}>
             Login
           </span>
         </Link>
@@ -44,24 +40,22 @@ const ButtonHeader = () => {
       {user ? (
         ""
       ) : (
-        <Link to="/register">
-          <span className="btn btn-outline-dark ms-2">
-            <i className="bx bx-registered"></i>
+        <Link to="/register" style={{ textDecoration: "none" }}>
+          <span className="nav-item nav-link" style={{ cursor: "pointer" }}>
             Register
           </span>
         </Link>
       )}
       {user ? (
-        <Link to="/cart">
-          <span className="btn btn-outline-dark ms-2">
-            <i className="bx bx-cart"></i>
+        <Link to="/cart" style={{ textDecoration: "none" }}>
+          <span className="nav-item nav-link" style={{ cursor: "pointer" }}>
             Cart
           </span>
         </Link>
       ) : (
         ""
       )}
-    </div>
+    </>
   );
 };
 
