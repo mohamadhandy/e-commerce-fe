@@ -26,7 +26,7 @@ const Index = () => {
         dataRegister.password
       );
     } catch (e) {
-      console.log(e);
+      swal("Error", e ,"error");
     }
   };
 

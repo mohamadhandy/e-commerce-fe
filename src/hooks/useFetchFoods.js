@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import swal from "sweetalert";
 
-export const useFetchFoods = (id) => {
+export const useFetchFoods = (id, category) => {
   const [loading, setLoading] = useState(false);
   const [APIData, setAPIData] = useState([]);
   useEffect(() => {
@@ -14,9 +14,15 @@ export const useFetchFoods = (id) => {
             `https://6302f81dc6dda4f287c08864.mockapi.io/api/v1/Foods/${id}`
           );
         } else {
-          response = await axios.get(
-            `https://6302f81dc6dda4f287c08864.mockapi.io/api/v1/Foods`
-          );
+          if (category !== 'All') {
+            response = await axios.get(
+              `https://6302f81dc6dda4f287c08864.mockapi.io/api/v1/Foods?filter=${category}`
+            );
+          } else {
+            response = await axios.get(
+              `https://6302f81dc6dda4f287c08864.mockapi.io/api/v1/Foods`
+            );
+          }
         }
         setAPIData(response.data);
         setLoading(true);
@@ -27,6 +33,6 @@ export const useFetchFoods = (id) => {
       }
     };
     fetchFoods();
-  }, []);
+  }, [category, id]);
   return { APIData, loading };
 };
