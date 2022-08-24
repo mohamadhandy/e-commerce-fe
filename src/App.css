@@ -5,6 +5,11 @@
   line-height: 1;
 }
 
+.mask-card {
+  text-decoration: none;
+  color: red;
+}
+
 .food-img {
   height: 18rem;
   width: 10rem;

@@ -2,7 +2,7 @@ import ButtonHeader from "./buttonHeader";
 const Header = () => {
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-light">
+      <nav className="navbar navbar-expand-lg bg-light py-3">
         <div className="container-fluid">
           <img src="/images/logo.png" alt="logo" />
           <button
