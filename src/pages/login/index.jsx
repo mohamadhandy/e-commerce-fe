@@ -4,6 +4,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Container, Row, Col, Button, Input } from "reactstrap";
+import Footer from "../../components/footer";
 
 const Index = () => {
   const [dataLogin, setDataLogin] = useState({ email: "", password: "" });
@@ -86,6 +87,7 @@ const Index = () => {
           </Row>
         </Container>
       </section>
+      <Footer />
     </>
   );
 };

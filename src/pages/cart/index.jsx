@@ -4,6 +4,7 @@ import { Container, Row, Col, Button } from "reactstrap";
 import { auth } from "../../config/firebase/index";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../components/footer";
 
 const Index = () => {
   const [user] = useAuthState(auth);
@@ -71,6 +72,7 @@ const Index = () => {
       ) : (
         navigate("/")
       )}
+      <Footer />
     </>
   );
 };

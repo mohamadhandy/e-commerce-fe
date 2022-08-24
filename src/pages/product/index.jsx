@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Container, Row, Col } from "reactstrap";
 import { useLocation } from "react-router";
 import { useFetchFoods } from "../../hooks/useFetchFoods";
+import Footer from "../../components/footer";
 
 const Index = () => {
   const location = useLocation();
@@ -87,6 +88,7 @@ const Index = () => {
           </aside>
         </Row>
       </Container>
+      <Footer />
     </>
   );
 };

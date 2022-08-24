@@ -7,6 +7,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/header";
 import { Form, Input, Container, Row, Col, Button } from "reactstrap";
+import Footer from "../../components/footer";
 
 const Index = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -142,6 +143,7 @@ const Index = () => {
           </Row>
         </Container>
       </section>
+      <Footer />
     </>
   );
 };

@@ -4,6 +4,7 @@ import ListProducts from "../../components/products";
 import { Container, Row, Col } from "reactstrap";
 import { useState } from "react";
 import { useFetchFoods } from "../../hooks/useFetchFoods";
+import Footer from "../../components/footer";
 
 const Index = () => {
   const [value, setValue] = useState("All");
@@ -56,6 +57,7 @@ const Index = () => {
         </div>
         <ListProducts foods={foods.APIData} loading={foods.loading} />
       </Container>
+      <Footer />
     </>
   );
 };
