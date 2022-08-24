@@ -9,6 +9,7 @@ import Footer from "../../components/footer";
 const Index = () => {
   const [value, setValue] = useState("All");
   let foods = useFetchFoods("", value);
+  const productsHappening = [...foods.APIData].length > 0 ? foods.APIData.filter(food => food.productHappening) : []
   const handleFilter = (e) => {
     let val = e.target.textContent;
     setValue(val);
@@ -56,6 +57,18 @@ const Index = () => {
           </button>
         </div>
         <ListProducts foods={foods.APIData} loading={foods.loading} />
+        <Row lg={12}>
+          <Col md={12} xs={12}>
+            <div
+              className="section-header mb-5 wow fadeInUp"
+              data-wow-delay="0.1s"
+              style={{ maxWidth: 500 }}
+            >
+              <h1 className="display-5 mb-3">Our Best Products</h1>
+            </div>
+          </Col>
+        </Row>
+        <ListProducts foods={productsHappening} loading={foods.loading} />
       </Container>
       <Footer />
     </>
