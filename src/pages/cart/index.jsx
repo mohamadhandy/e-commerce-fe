@@ -5,8 +5,13 @@ import { auth } from "../../config/firebase/index";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import Footer from "../../components/footer";
+import { useSelector, useDispatch } from 'react-redux';
 
 const Index = () => {
+  const dispatch = useDispatch();
+  const { data } = useSelector(state => state.productOrder);
+  const totalAmount = data.reduce((previousValue, currentValue) => previousValue + (currentValue.finalPrice * currentValue.quantity),
+  0,)
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
   return (
@@ -19,9 +24,9 @@ const Index = () => {
               <Col md={8} xs={12}>
                 <div className="card mb-4">
                   <div className="card-header py-3">
-                    <h5 className="mb-0">Cart -  items</h5>
+                    <h5 className="mb-0">Cart - {data.length} items</h5>
                   </div>
-                  <Cart />
+                  <Cart cart={data} />
                 </div>
                 <div className="card mb-4">
                   <div className="card-body">
@@ -55,14 +60,11 @@ const Index = () => {
                           </strong>
                         </div>
                         <span>
-                          <strong>$53.98</strong>
+                          <strong>Rp {totalAmount}</strong>
                         </span>
                       </li>
                     </ul>
 
-                    <Button type="button" block color="primary">
-                      Go to checkout
-                    </Button>
                   </div>
                 </div>
               </Col>

@@ -1,15 +1,44 @@
 import Header from "../../components/header";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Container, Row, Col } from "reactstrap";
 import { useLocation } from "react-router";
 import { useFetchFoods } from "../../hooks/useFetchFoods";
 import Footer from "../../components/footer";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { addProductToCart } from "../../config/redux/cart-product/action";
+import { auth } from "../../config/firebase/index";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
+  const [user] = useAuthState(auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const location = useLocation();
   const idLocation = location.pathname.split("/products/")[1];
   const data = useFetchFoods(idLocation);
   const food = data.APIData;
+  const [detailOrder, setDetailOrder] = useState({
+    quantity: 0
+  });
+
+  const handleCart = () => {
+    if (!user) {
+      swal("User Not Found", "User Not Found, please login", "error");
+      navigate("/login");
+    } else {
+      const { id, name, finalPrice, price, url, productHappening, category, createdAt, description } = food;
+      const { quantity } = detailOrder;
+      const data = { id, name, finalPrice, price, url, productHappening, category, createdAt, description, quantity };
+      if (quantity === 0) {
+        swal("Please fill all field", "Please fill all field", "error");
+      } else {
+        dispatch(addProductToCart(data));
+        swal("Added to cart", "Success Added to cart", "success");
+      }
+    }
+  };
 
   return (
     <>
@@ -37,7 +66,7 @@ const Index = () => {
               <p className="price-detail-wrap">
                 <span className="price h3 text-warning">
                   <span className="currency">Rp</span>
-                  <span className="num">{food.price}</span>
+                  <span className="num">{food.finalPrice}</span>
                 </span>
               </p>
 
@@ -68,22 +97,27 @@ const Index = () => {
                   <dl className="param param-inline">
                     <dt>Quantity:</dt>
                     <dd>
-                      <select
-                        className="form-control form-control-sm"
-                        style={{ width: 70 }}
-                      >
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                      </select>
+                      <input
+                        type="number"
+                        min="0"
+                        defaultValue={0}
+                        onChange={(e) =>
+                          setDetailOrder({
+                            ...detailOrder,
+                            quantity: Number(e.target.value),
+                          })
+                        }
+                      />
                     </dd>
                   </dl>
                 </div>
               </div>
               <hr />
-              <Link to="/cart">
-                <span className="btn btn-warning me-1">Add to Cart</span>
-              </Link>
+              {/* <Link to="/cart"> */}
+              <span onClick={handleCart} className="btn btn-warning me-1">
+                Add to Cart
+              </span>
+              {/* </Link> */}
             </article>
           </aside>
         </Row>
