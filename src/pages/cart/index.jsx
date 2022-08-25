@@ -44,13 +44,9 @@ const Index = () => {
                   </div>
                   <div className="card-body">
                     <ul className="list-group list-group-flush">
-                      <li className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
-                        Products
-                        <span>$53.98</span>
-                      </li>
                       <li className="list-group-item d-flex justify-content-between align-items-center px-0">
                         Shipping
-                        <span>Gratis</span>
+                        <span>Free</span>
                       </li>
                       <li className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                         <div>
