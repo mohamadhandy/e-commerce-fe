@@ -1,6 +1,12 @@
-import { Row, Col, Input } from "reactstrap";
-import { changeQuantity } from "../config/redux/cart-product/action";
+import { Row, Col } from "reactstrap";
+import { changeQuantity, removeProductToCart } from "../config/redux/cart-product/action";
+import { useDispatch } from 'react-redux';
 const Cart = ({ cart }) => {
+  const dispatch = useDispatch();
+  const handleChange = (e, item) => {
+    item.quantity = Number(e.target.value)
+    dispatch(changeQuantity(item))
+  }
   return (
     <div className="card-body">
       {cart.map((item, index) => (
@@ -29,17 +35,17 @@ const Cart = ({ cart }) => {
             </Col>
             <Col md={3} xs={12}>
               <div className="d-flex mb-4">
-                <i className="bx bx-trash pt-2 px-4"></i>
+                <i onClick={() => dispatch(removeProductToCart(item))} className="bx bx-trash pt-2 px-4"></i>
                 <div className="form-outline">
-                  <Input
+                  <input
                     id="form1"
                     min="0"
                     name="quantity"
                     defaultValue={item.quantity}
                     type="number"
                     className="form-control"
-                    onChange={() =>
-                      dispatch(changeQuantity(item))
+                    onChange={(e) =>
+                      handleChange(e, item)
                     }
                   />
                   <label className="form-label" htmlFor="form1">
