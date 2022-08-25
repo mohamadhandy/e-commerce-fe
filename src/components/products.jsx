@@ -1,9 +1,16 @@
 import { Link } from "react-router-dom";
 import { auth } from "../config/firebase/index";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useDispatch } from "react-redux";
+import { addProductToCart } from "../config/redux/cart-product/action";
 
 const ListProducts = ({ foods, loading }) => {
+  const dispatch = useDispatch();
   const [user] = useAuthState(auth);
+  const handleCart = (product) => {
+    product.quantity = 1
+    dispatch(addProductToCart(product))
+  };
   return !loading ? (
     <div className="row justify-content-center" id="products">
       {foods.map((product, index) => (
@@ -44,14 +51,18 @@ const ListProducts = ({ foods, loading }) => {
                       detail
                     </Link>
                   </small>
-                  <small className="w-50 text-center py-2">
+                  <small
+                    className="w-50 text-center py-2"
+                  >
                     <Link
                       to="/cart"
                       style={{ textDecoration: "none" }}
                       className="text-body"
                     >
+                    <span onClick={() => handleCart(product)}>
                       <i className="bx bx-shopping-bag text-success me-2"></i>
                       Add to cart
+                    </span>
                     </Link>
                   </small>
                 </>
