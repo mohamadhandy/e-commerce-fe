@@ -3,6 +3,7 @@ import { auth } from "../config/firebase/index";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useDispatch } from "react-redux";
 import { addProductToCart } from "../config/redux/cart-product/action";
+import { rupiah } from "../helper/currency";
 
 const ListProducts = ({ foods, loading }) => {
   const dispatch = useDispatch();
@@ -31,10 +32,10 @@ const ListProducts = ({ foods, loading }) => {
                 {product.name}
               </span>
               <span className="text-success me-1">
-                Rp. {product.finalPrice}
+                {rupiah(product.finalPrice)}
               </span>
               <span className="text-body text-decoration-line-through">
-                Rp. {product.price}
+                {rupiah(product.price)}
               </span>
               <p className="text-body">{product.description}</p>
             </div>

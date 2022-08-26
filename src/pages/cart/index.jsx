@@ -6,6 +6,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import Footer from "../../components/footer";
 import { useSelector, useDispatch } from 'react-redux';
+import { rupiah } from "../../helper/currency";
 
 const Index = () => {
   const dispatch = useDispatch();
@@ -56,7 +57,7 @@ const Index = () => {
                           </strong>
                         </div>
                         <span>
-                          <strong>Rp {totalAmount}</strong>
+                          <strong>{rupiah(totalAmount)}</strong>
                         </span>
                       </li>
                     </ul>

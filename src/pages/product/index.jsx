@@ -10,6 +10,7 @@ import { addProductToCart } from "../../config/redux/cart-product/action";
 import { auth } from "../../config/firebase/index";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
+import { rupiah } from "../../helper/currency";
 
 const Index = () => {
   const [user] = useAuthState(auth);
@@ -65,8 +66,8 @@ const Index = () => {
 
               <p className="price-detail-wrap">
                 <span className="price h3 text-warning">
-                  <span className="currency">Rp</span>
-                  <span className="num">{food.finalPrice}</span>
+                  <span className="currency"></span>
+                  <span className="num">{rupiah(food.finalPrice)}</span>
                 </span>
               </p>
 
